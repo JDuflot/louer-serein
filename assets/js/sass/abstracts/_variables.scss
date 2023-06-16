@@ -1,0 +1,20 @@
+$color-primary: #FBFBFA;
+$color-secondary: #184241;
+$color-tertiary: #E2CEC4;
+$color-quaternary:  #000000;
+$color-quinary: #C0A256;
+
+
+$breakpoints: (
+
+  "small": 480px,
+  "medium": 768px,
+  "large": 1024px,
+  "xlarge": 1200px,
+);
+
+$small-screen: map-get($breakpoints, "small");
+$medium-screen: map-get($breakpoints, "medium");
+$large-screen: map-get($breakpoints, "large");
+$xlarge-screen: map-get($breakpoints, "xlarge");
+

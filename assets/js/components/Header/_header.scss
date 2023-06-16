@@ -1,0 +1,56 @@
+.header-nav{
+    display: flex;
+    width: 76%;
+    height: 68px;
+    margin: auto;
+    margin-bottom: 1%;
+    padding-top: 50px;
+    align-items: center;
+    justify-content: space-between;
+
+    @include small-screen{
+        padding-top: 5px;
+    }
+
+    .header-title{
+        position: absolute;
+        top: 11%;
+        left: 18%;
+        width: 220px;
+        color: $color-secondary;
+        font-size: 38px;
+        font-family: Dancing-Script;
+        @include small-screen {
+            display: none;
+    }
+    }
+
+    .logo,img{
+        width: 120px;
+        @include small-screen {
+            width: 80px;
+            margin-top: 5%;
+    }
+}
+
+    .ul-nav{
+        display: flex;
+        width: 750px;
+        margin-left: 12%;
+        justify-content: space-between;
+        
+        a{
+            color: $color-secondary;
+        }
+            a:hover{
+                text-decoration: underline;
+            }
+
+            @include small-screen {
+                padding-top: 25px;
+                width: 120px;
+                font-size: 12px;
+        }
+     }
+
+}

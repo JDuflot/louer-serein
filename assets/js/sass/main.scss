@@ -1,0 +1,23 @@
+@import './abstracts/mixins';
+@import './abstracts/variables';
+
+@import './bases/font';
+@import './bases/reset';
+@import './bases/typographies';
+
+@import './pages/about';
+
+@import './pages/home';
+@import './pages/housing';
+
+@import '../components/Banner/banner';
+@import '../components/Banner/bannerAbout';
+@import '../components/Card/card';
+@import '../components/Carrousel/carrousel';
+@import '../components/Content/content';
+@import '../components/Error/error';
+@import '../components/Footer/footer';
+@import '../components/Header/header';
+@import '../components/Accordion/accordion';
+@import '../components/Appartment/sheet';
+@import '../components/Collapse/collapse';

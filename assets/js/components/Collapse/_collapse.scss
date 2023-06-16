@@ -1,0 +1,91 @@
+.collapse-main{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    @include small-screen{
+      display: flex;
+      flex-direction: column;
+    }
+}
+.collapse-all{
+    width: 582px;
+    margin-left: 6%;
+        @include small-screen{
+        width: 335px;
+        margin-left: 0.5%;
+      }
+}
+
+.collapse-description{
+    color: $color-secondary;
+    @include small-screen{
+        font-size: 14px;
+      }
+}
+
+.collapse-equipment{
+    color: $color-secondary;
+    width: 50%;
+    margin-left: 2%;
+    @include small-screen{
+        font-size: 14px;
+        margin-left: 0%;
+      }
+}
+.collapse-title{
+        border-radius: 5px;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        background-color: $color-secondary;
+        color: $color-primary;
+        width: 99%;
+        height:52px;
+        padding-left: 1%;
+        @include small-screen{
+            padding-left: 1;
+          }
+
+    }
+    .visiblecollapse{
+        visibility: hidden;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0 1rem;
+        transition: all .2s ease-in;
+        @include small-screen{
+            margin-bottom: 2%;
+          }
+    }
+
+     .collapse-ul{
+        display: block;
+        background: $color-tertiary;
+        border-radius: 0px 0px 5px 5px;
+        color: $color-secondary;
+        visibility: visible;
+        height: auto;
+        overflow: visible;
+        padding: 1rem;
+        opacity: 1;
+
+        li{
+          // border: 1px solid red;
+          font-size: 18px;
+          padding-right: 1px;
+        }
+
+        @include small-screen{
+            margin-bottom: 2%;
+          }
+    }
+    .chevronValue{
+        width: 24px;
+        height: 13px;
+        margin-right: 1%;
+        cursor: pointer;
+    }
+
+  

@@ -1,0 +1,41 @@
+.div-footer{
+
+    margin-top: 2%;
+    display: inline-block;
+    width:99.9%;
+    height: 209px;
+    position: sticky;
+    top: 100%;
+    background-color: $color-secondary;
+    color: $color-primary;
+
+    @include small-screen {
+        height: 100px;
+
+    }
+
+    .logo,img{
+        width: 150px;
+        margin-left: 46%;
+        margin-top: 1%;
+        @include small-screen {
+            margin-left: 36%;
+            height: 35%;
+
+        }
+
+    }
+    h2{
+        color: $color-primary;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 100;
+        @include small-screen {
+
+            font-size: 12px;
+
+        }
+
+    }
+
+}

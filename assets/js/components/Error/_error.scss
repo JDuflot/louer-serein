@@ -1,0 +1,55 @@
+.error{
+    display: flex;
+    width: 80%;
+    height: auto;
+    margin: auto;
+    // border: 1px solid red;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3%;
+    color: $color-secondary;
+    
+    @include small-screen {
+        width: 90%;
+        height: auto;
+        margin-top: 30%;
+
+    }
+
+    .error-img{
+        height:263px;
+        width: 597px;
+        @include small-screen {
+            width: 80%;
+            height: auto;
+            
+
+        }
+
+    }
+
+    .error-title{
+        font-size: 36px;
+        margin: 3%;
+        @include small-screen {
+            font-size: 18px;
+            text-align: center;
+            margin: 10%;
+        }
+    }
+
+    .error-link{
+        text-decoration: underline;
+        color: $color-secondary;
+        font-size: 18px;
+        margin-top: 5%;
+        @include small-screen {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 40%;
+        }
+
+
+    }
+}

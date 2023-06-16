@@ -8,11 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ReactController extends AbstractController
 {
-    #[Route('/react', name: 'app_react')]
+    #[Route('/{reactrouting}', name: 'app_react', requirements: ['reactrouting' => '^(?!login|registration).+'], defaults: ['reactrouting' => null])]
     public function index(): Response
     {
-        return $this->render('react/index.html.twig', [
-            'controller_name' => 'ReactController',
-        ]);
+        return $this->render('react/index.html.twig', []);
     }
 }
