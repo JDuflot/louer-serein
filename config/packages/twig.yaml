@@ -4,3 +4,6 @@ twig:
 when@test:
     twig:
         strict_variables: true
+
+react:
+    controllers_path: '%kernel.project_dir%/assets/build/react/controllers'
