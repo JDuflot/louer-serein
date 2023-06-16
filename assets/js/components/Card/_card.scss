@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-
     width: 90%;
     height: auto;
     // border: 1px solid rgb(31, 179, 135)
@@ -17,7 +16,6 @@
     }
 
 }
-
 
 .card{
     position: relative;
@@ -34,7 +32,6 @@
     }
     
     .card-img{
-        
         width: 400px;
         height: 350px;
         border-radius: 10px;
@@ -46,11 +43,24 @@
     .card-title{
         position: absolute;
         z-index:1;
-        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
         width: 400px;
         height: 38px;
         color: $color-primary;
+        top: 87%;
+        left: 2%;
+
+    }
+    .card-title-bg{
+        position: absolute;
         top: 85%;
-       
+        background: linear-gradient(to top, rgba(24, 66, 65, 0.08) 0%, rgba(10, 32, 30, 0.8) 100%);
+        width: 400px;
+        height: 50px;
+        border-radius: 0px 0px 10px 10px;
+        @include small-screen {
+            width: 380px;
+            height:50px;
+            border-radius: 0px 0px 10px 10px;
+        }
     }
 }

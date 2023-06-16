@@ -13,6 +13,7 @@ function Card(props) {
                 <Link key={`housing-${card.id}`} to={`/housing/${card.id}`}>
                 <img className="card-img" src={card.cover} alt="location" />
                 <p className="card-title">{card.title}</p>
+                <div className='card-title-bg'></div>
                 </Link>
             </div>
           ))}
