@@ -17,8 +17,9 @@ function Header() {
             <ul className="ul-nav">
                <li><Link to="/">Accueil</Link></li>
                <li><Link to="/about">A Propos</Link></li>
-               <li><Link to="/">Mon profil</Link></li>
+               <li><Link to="/">Mon compte</Link></li>
                <li><Link to="/">Se connecter</Link></li>
+               <li><Link to="/">S'inscrire</Link></li>
             </ul>
         </nav>
         </header>

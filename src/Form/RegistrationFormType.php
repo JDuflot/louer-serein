@@ -6,6 +6,8 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -17,20 +19,66 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
-            ->add('agreeTerms', CheckboxType::class, [
+            ->add('email', EmailType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+                'label' => 'Email',
+            ])
+            ->add('lastname', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                ], 
+                'label' => 'Nom',
+            ])
+            ->add('firstname', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                ], 
+                'label' => 'Prénom',
+            ])
+            ->add('picture', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                ], 
+                'label' => 'Photo de profil',
+            ])
+            ->add('address', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+                'label' => 'Adresse',
+            ])
+            ->add('zip', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                ], 
+                'label' => 'Code postal',
+            ])
+            ->add('city', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                ], 
+                'label' => 'Ville',
+            ])
+            ->add('RGPDConsent', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'You should agree to our terms',
                     ]),
                 ],
+                'label' => 'En m\'inscrivant sur ce site , j\'accepte .... ',
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => [
+                    'autocomplete' => 'new-password',
+                    'class' => 'form-control',
+                ],
+                'label' => 'Mot de passe',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
