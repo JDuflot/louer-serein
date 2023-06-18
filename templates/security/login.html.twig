@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<section class="container">
+	<section class="container my-3">
 		<div class="row">
 			<div class="col">
 				<form method="post">
@@ -22,7 +22,7 @@
 
 					<h1 class="h3 mb-3 font-weight-normal">Me connecter</h1>
 					<label for="inputEmail">Email</label>
-					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control my-3" autocomplete="email" required autofocus>
 					<label for="inputPassword">Mot de passe</label>
 					<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
@@ -40,7 +40,7 @@
 					    #}
 
 
-					<button class="btn btn-lg btn-primary" type="submit">
+					<button class="btn my-3 btn-lg btn-outline-primary" type="submit">
 						Me connecter
 					</button>
 				</form>

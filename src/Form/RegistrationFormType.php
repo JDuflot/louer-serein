@@ -38,9 +38,9 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Prénom',
             ])
             ->add('picture', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control',
-                ], 
+                // 'attr' => [
+                //     'class' => 'form-control',
+                // ],
                 'label' => 'Photo de profil',
             ])
             ->add('address', TextType::class, [

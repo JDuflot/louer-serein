@@ -7,6 +7,7 @@ function Header() {
     return(
 <>
         <header className="header-nav">
+        <div className="navbar">
             <div className="logo"> 
                 <Link to="/" element={<Home/>}> 
                 <img src={Logo} alt="logo"/>
@@ -22,6 +23,7 @@ function Header() {
                <li><Link to="/">S'inscrire</Link></li>
             </ul>
         </nav>
+        </div>
         </header>
 </>
     )

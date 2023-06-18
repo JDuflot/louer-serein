@@ -1,8 +1,10 @@
 .collapse-main{
     width: 90%;
+    height: 200px;
     margin: auto;
     display: flex;
     justify-content: space-evenly;
+    // border: 1px solid red;
     @include small-screen{
       display: flex;
       flex-direction: column;
