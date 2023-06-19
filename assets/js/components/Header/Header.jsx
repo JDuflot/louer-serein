@@ -18,9 +18,9 @@ function Header() {
             <ul className="ul-nav">
                <li><Link to="/">Accueil</Link></li>
                <li><Link to="/about">A Propos</Link></li>
-               <li><Link to="/">Mon compte</Link></li>
-               <li><Link to="/">Se connecter</Link></li>
-               <li><Link to="/">S'inscrire</Link></li>
+               <li><Link reloadDocument={true} to="/">Mon compte</Link></li>
+               <li><Link reloadDocument={true} to="/login">Se connecter</Link></li>
+               <li><Link reloadDocument={true} to="/register">S'inscrire</Link></li>
             </ul>
         </nav>
         </div>

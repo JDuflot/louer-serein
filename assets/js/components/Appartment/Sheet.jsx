@@ -9,8 +9,6 @@ import Collapse from '../Collapse/Collapse';
 function Sheet(props) {
 
     const rating = props.ratings; //ratings ayant deux objets création d'une const
-
-
   return (
     <div>
         <div className='housing'>

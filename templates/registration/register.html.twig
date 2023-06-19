@@ -4,14 +4,15 @@
 
 {% block body %}
 	<section class="container my-3">
+	<div class="container card shadow-lg border-primary">
 		<div class="row">
 			<div class="col">
-				{# <h1>Inscription :</h1> #}
+				
 
 				{{ form_errors(registrationForm) }}
 				{{ form_start(registrationForm) }}
                     <fieldset>
-                    <legend>Mon identité </legend>
+                    <legend>Mon Identité </legend>
 				    {{ form_row(registrationForm.lastname) }}
                     {{ form_row(registrationForm.firstname) }}
                     {{ form_row(registrationForm.email) }}
@@ -27,13 +28,14 @@
             label: 'Mot de passe'
         }) }}
 				
-				<input type="file" class="my-3" {{ form_row(registrationForm.picture) }} >
+				<input type="file" class="my-3" {{ form_row(registrationForm.picture) }}>
 				
 				{{ form_row(registrationForm.RGPDConsent) }}
 				{{ form_end(registrationForm) }}
 
-				<button type="submit" class="btn my-3 btn-outline-primary">M'inscrire</button>
+				<button type="submit" class="btn col-2 ms-2 my-3 btn-outline-primary">M'inscrire</button>
 			</div>
+		</div>
 		</div>
 	</section>
 {% endblock %}
