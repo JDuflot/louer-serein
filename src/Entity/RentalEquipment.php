@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Metadata\ApiResource;
+use App\Entity\Equipment;
+use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Trait\CreatedAtTrait;
+use ApiPlatform\Metadata\ApiResource;
+use Doctrine\Common\Collections\Collection;
 use App\Repository\RentalEquipmentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RentalEquipmentRepository::class)]
 #[ApiResource()]
@@ -27,15 +28,18 @@ class RentalEquipment
     // private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\ManyToOne(inversedBy: 'rentalEquipment')]
-    private ?rental $rental = null;
+    // #[ORM\JoinColumn(onDelete: 'CASCADE')]
+    private ?Rental $rental = null;
 
-    #[ORM\ManyToMany(targetEntity: equipment::class, inversedBy: 'rentalEquipment')]
+    #[ORM\ManyToMany(targetEntity: Equipment::class, inversedBy: 'rentalEquipment')]
+    // #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private Collection $equipment;
 
     public function __construct()
     {
         $this->equipment = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
+        $this->updated_at = new \DateTimeImmutable();
         
     }
 
@@ -68,12 +72,12 @@ class RentalEquipment
     //     return $this;
     // }
 
-    public function getRental(): ?rental
+    public function getRental(): ?Rental
     {
         return $this->rental;
     }
 
-    public function setRental(?rental $rental): static
+    public function setRental(?Rental $rental): static
     {
         $this->rental = $rental;
 
@@ -88,7 +92,7 @@ class RentalEquipment
         return $this->equipment;
     }
 
-    public function addEquipment(equipment $equipment): static
+    public function addEquipment(Equipment $equipment): static
     {
         if (!$this->equipment->contains($equipment)) {
             $this->equipment->add($equipment);
@@ -97,7 +101,7 @@ class RentalEquipment
         return $this;
     }
 
-    public function removeEquipment(equipment $equipment): static
+    public function removeEquipment(Equipment $equipment): static
     {
         $this->equipment->removeElement($equipment);
 

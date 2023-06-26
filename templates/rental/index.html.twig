@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rental index{% endblock %}
+
+{% block body %}
+    <h1>Rental index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Cover</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Location</th>
+                <th>Updated_at</th>
+                <th>Created_at</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rental in rentals %}
+            <tr>
+                <td>{{ rental.id }}</td>
+                <td>{{ rental.title }}</td>
+                <td>{{ rental.cover }}</td>
+                <td>{{ rental.description }}</td>
+                <td>{{ rental.price }}</td>
+                <td>{{ rental.location }}</td>
+                <td>{{ rental.updatedAt ? rental.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rental.createdAt ? rental.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rental.slug }}</td>
+                <td>
+                    <a href="{{ path('app_rental_show', {'id': rental.id}) }}">show</a>
+                    <a href="{{ path('app_rental_edit', {'id': rental.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rental_new') }}">Create new</a>
+{% endblock %}

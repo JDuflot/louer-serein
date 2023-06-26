@@ -4,8 +4,18 @@ import Home from "../../pages/Home"
 import React, { useState } from 'react';
 
 function Header() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const handleLogin = () => {
+        setIsLoggedIn(true);
+    };
+
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+    };
     return(
 <>
+        <div id="react-navbar">
         <header className="header-nav">
         <div className="navbar">
             <div className="logo"> 
@@ -16,15 +26,27 @@ function Header() {
             </div>
         <nav>
             <ul className="ul-nav">
-               <li><Link to="/">Accueil</Link></li>
-               <li><Link to="/about">A Propos</Link></li>
-               <li><Link reloadDocument={true} to="/">Mon compte</Link></li>
-               <li><Link reloadDocument={true} to="/login">Se connecter</Link></li>
-               <li><Link reloadDocument={true} to="/register">S'inscrire</Link></li>
+               <li className="li-nav"><Link to="/">Accueil</Link></li>
+               <li className="li-nav"><Link to="/about">A Propos</Link></li>
+               {isLoggedIn ? (
+                <ul className="li-deco">
+                   <li className="btn btn-deconnexion" onClick={handleLogin}><Link className="li-nav-deco" reloadDocument={true} to="/logout">Déconnexion</Link></li>
+                   <li className="btn li-nav-deco"><Link className="li-nav-co" reloadDocument={true} to="/user_profile">Mon compte</Link></li>
+                    <li className="btn li-nav-deco"><Link className="li-nav-deco" reloadDocument={true} to="/user_profile">Messagerie</Link></li>
+                </ul>
+               
+              ) : (
+                <ul className="li-connexion">
+                  <li className="btn btn-connexion" onClick={handleLogout}><Link className="li-nav-co" reloadDocument={true} to="/login">Se connecter</Link></li>
+                  <li className="btn btn-connexion" onClick={handleLogout}><Link className="li-nav-co" reloadDocument={true} to="/register">S'inscrire</Link></li>
+                </ul>
+              )}
+
             </ul>
         </nav>
         </div>
         </header>
+        </div>
 </>
     )
 }

@@ -1,9 +1,81 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Mon profil{% endblock %}
+{% block title %}Mon profil
+{% endblock %}
+
 
 {% block body %}
-<div class="">
-</div>
+	{# <div id="react-navbar"></div> #}
+
+	<h2>Mon compte utilisateur</h2>
+	{# {% if app.flashes('success') is not empty %}
+					<div class="alert alert-success">
+						{{ app.flashes('success')[0] }}
+					</div>
+				{% endif %} #}
+	<div class="main">
+
+		<div class="perso">
+			<div class="perso-name">
+				<img class="perso-picture" alt="">
+				<h3>{{ user.firstname }}</h3>
+			</div>
+			<div class="perso-info">
+				<p>{{ user.email }}</p>
+			</div>
+			{# <div class="perso-info">
+				<p>{{ user.plainPassword }}</p>
+			</div> #}
+			<div class="perso-info">
+				<p>{{ user.address }}</p>
+			</div>
+			<div class="perso-info">
+				<p>{{ user.zip }}</p>
+			</div>
+			<div class="perso-info">
+				<p>{{ user.city }}</p>
+			</div>
+			<div class="perso-actions">
+				<button class="btn btn-success perso-btn-edit">Modifier</button>
+				<button class="btn btn-danger perso-btn-edit">Annuler</button>
+				<button class="btn btn-primary perso-btn-edit">Enregistrer</button>
+			</div>
+		</div>
+
+		<div class="user">
+			<h2>Mes réservations</h2>
+			<div class="user-booking">
+				<div class="booking">
+					<img class="booking-img" alt="">
+					<div class="booking-txt">
+						<p class="booking desc">Description de l'appartement, Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptates nihil ullam ratione enim dignissimos odio asperiores nulla praesentium? Eum at commodi dignissimos dolorum voluptatibus laborum molestias. Assumenda, vero ipsum.</p>
+					</div>
+				</div>
+			</div>
+			<div class="user-booking">
+				<div class="booking">
+					<img class="booking-img" alt="">
+					<div class="booking-txt">
+						<p class="booking desc">Description de l'appartement, Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptates nihil ullam ratione enim dignissimos odio asperiores nulla praesentium? Eum at commodi dignissimos dolorum voluptatibus laborum molestias. Assumenda, vero ipsum.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="rental">
+			<h2>Ma location</h2>
+			<div class="user-rating">
+				<div class="rating">
+					<img class="rating-img" alt="">
+					<div class="rating-txt">
+						<p class="rating-desc">Description de l'appartement, Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptates nihil ullam ratione enim dignissimos odio asperiores nulla praesentium? Eum at commodi dignissimos dolorum voluptatibus laborum molestias. Assumenda, vero ipsum.</p>
+					</div>
+				</div>
+			</div>
+			<button>Ajouter une location</button>
+		</div>
+
+	</div>
+
+
 {% endblock %}

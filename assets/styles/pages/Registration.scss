@@ -1,0 +1,12 @@
+.form-registration{
+    margin-top: 2%;
+    background-color: $color-primary;
+
+    .input-label{
+        color: $color-secondary;
+    }
+    .btn-registration{
+        background-color: $color-secondary;
+        color: $color-primary;
+    }
+}

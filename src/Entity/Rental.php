@@ -54,6 +54,7 @@ class Rental
         $this->pictures = new ArrayCollection();
         $this->rentalEquipment = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
+        $this->updated_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int

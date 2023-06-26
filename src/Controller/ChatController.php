@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AddRentalController extends AbstractController
+class ChatController extends AbstractController
 {
-    #[Route('/add_rental', name: 'app_add_rental')]
+    #[Route('/chat', name: 'app_chat')]
     public function index(): Response
     {
-        return $this->render('add_rental/index.html.twig', [
-            'controller_name' => 'AddRentalController',
+        return $this->render('chat/index.html.twig', [
+            'controller_name' => 'ChatController',
         ]);
     }
 }

@@ -22,6 +22,7 @@ class Equipment
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
+    private ?string $additionalProperties = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $updated_at = null;
@@ -36,6 +37,7 @@ class Equipment
     {
         $this->rentalEquipment = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
+        $this->updated_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -54,6 +56,28 @@ class Equipment
 
         return $this;
     }
+
+//     public function getAdditionalProperties(): ?array
+// {
+//     if ($this->additionalProperties === null) {
+//         return null;
+//     }
+// // explode pour récupérer les valeurs qu'il divise en string
+//     return explode(',', $this->additionalProperties);
+// }
+
+// public function setAdditionalProperties(?array $additionalProperties): static
+// {
+//     //on vérifie si $additionalProperties n'est pas nul
+//     // si elle n'est pas nul, valeurs supplémentaires, utilisé la fonction 'implode' pour fusionner toutes les valeurs du tableau en string
+//     if ($additionalProperties !== null) {
+//         $this->additionalProperties = implode(',', $additionalProperties);
+//     } else {
+//         $this->additionalProperties = null;
+//     }
+
+//     return $this;
+// }
 
     public function getUpdatedAt(): ?\DateTimeImmutable
     {

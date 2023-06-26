@@ -1,0 +1,16 @@
+.form-login{
+    margin-top: 2%;
+    background-color: $color-primary;
+
+    h1{
+        color: $color-secondary;
+        margin-top: 2%;
+    }
+    .input-label{
+        color: $color-secondary;
+    }
+    .btn-connexion{
+        background-color: $color-secondary;
+        color: $color-primary;
+    }
+}

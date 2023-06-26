@@ -1,0 +1,36 @@
+body{
+    font-size:18px;
+    font-weight: 400;
+    font-family: 'Montserrat',sans-serif;
+
+    h1 {
+        font-size: 48px;
+        font-weight: 400;
+        color: $color-primary;
+        @include small-screen{
+            font-size: 24px;
+        }
+    }
+
+    h2 ,h3 {
+        color: $color-secondary;
+        @include small-screen{
+            font-size: 18px;
+        }
+    }
+    h2{
+        font-size: 36px;
+    }
+    h3{
+        font-size: 24px;
+    }
+
+    li {
+        color: $color-secondary;
+        font-size: 24px;
+        @include small-screen{
+            font-size: 12px;
+        }
+
+    }
+}

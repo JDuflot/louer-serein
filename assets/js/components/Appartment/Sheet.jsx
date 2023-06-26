@@ -32,7 +32,7 @@ function Sheet(props) {
 								<span><img className='host-img' src={props.hosts.picture} alt="host of this accomodation" /></span>
 							</div>
 
-						</div>
+					</div>
 
 						<div className="host-stars">
 							{[...Array(5)].map((star, index) => {

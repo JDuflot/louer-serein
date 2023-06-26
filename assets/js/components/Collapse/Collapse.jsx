@@ -31,7 +31,8 @@ export default function Collapse({title, content}) {
                        {Array.isArray(content)
                        && content.map((item, index) => (
                            <li key={index}>{item}</li>
-                           ))}
+                           )) || content
+                        }
                     </ul> 
                 </div> 
             </div>
