@@ -134,18 +134,6 @@ class Rental
         return $this;
     }
 
-    // public function getCreatedAt(): ?\DateTimeImmutable
-    // {
-    //     return $this->created_at;
-    // }
-
-    // public function setCreatedAt(\DateTimeImmutable $created_at): static
-    // {
-    //     $this->created_at = $created_at;
-
-    //     return $this;
-    // }
-
     /**
      * @return Collection<int, Picture>
      */
@@ -205,4 +193,8 @@ class Rental
 
         return $this;
     }
+    // public function __toString()
+    // {
+    //     return $this->getRentalEquipment()->getTitle();
+    // }
 }

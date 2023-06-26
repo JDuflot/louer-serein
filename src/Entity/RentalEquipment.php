@@ -24,15 +24,11 @@ class RentalEquipment
     #[ORM\Column]
     private ?\DateTimeImmutable $updated_at = null;
 
-    // #[ORM\Column]
-    // private ?\DateTimeImmutable $created_at = null;
-
     #[ORM\ManyToOne(inversedBy: 'rentalEquipment')]
-    // #[ORM\JoinColumn(onDelete: 'CASCADE')]
+  
     private ?Rental $rental = null;
 
     #[ORM\ManyToMany(targetEntity: Equipment::class, inversedBy: 'rentalEquipment')]
-    // #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private Collection $equipment;
 
     public function __construct()
@@ -60,18 +56,7 @@ class RentalEquipment
         return $this;
     }
 
-    // public function getCreatedAt(): ?\DateTimeImmutable
-    // {
-    //     return $this->created_at;
-    // }
-
-    // public function setCreatedAt(\DateTimeImmutable $created_at): static
-    // {
-    //     $this->created_at = $created_at;
-
-    //     return $this;
-    // }
-
+  
     public function getRental(): ?Rental
     {
         return $this->rental;
@@ -107,4 +92,6 @@ class RentalEquipment
 
         return $this;
     }
+
+   
 }
