@@ -32,9 +32,9 @@ class RegistrationFormType extends AbstractType
                         'min' => 3,
                         'minMessage' => 'Votre email doit contenir au moins {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
-                        'max' => 5,
+                        'max' => 250,
                     ]),
-                    
+
                 ],
             ])
             ->add('lastname', TextType::class, [
@@ -50,7 +50,7 @@ class RegistrationFormType extends AbstractType
                         'min' => 2,
                         'minMessage' => 'Votre nom doit contenir au moins {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
-                        'max' => 5,
+                        'max' => 250,
                     ]),
                 ],
             ])

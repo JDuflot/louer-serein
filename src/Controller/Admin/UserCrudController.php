@@ -39,8 +39,8 @@ class UserCrudController extends AbstractCrudController
                 ->hideOnForm(),
             DateTimeField::new('createdAt')
                 ->setFormTypeOption('disabled', 'disabled'),
-            CollectionField::new('rental'),
-            CollectionField::new('chat'),
+            CollectionField::new('rentals'),
+            // CollectionField::new('chat'),
         ];
     }
 }

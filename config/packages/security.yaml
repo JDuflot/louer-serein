@@ -2,6 +2,7 @@ security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
         # used to reload user from session & other features (e.g. switch_user)
@@ -19,6 +20,7 @@ security:
             custom_authenticator: App\Security\UserAuthentificator
             logout:
                 path: app_logout
+                target: app_react
                 # where to redirect after logout
                 # target: app_any_route <<<< route à décommenter pour donner la route home
 
@@ -32,7 +34,11 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/user_profile, roles: ROLE_USER }
+
+
+    # role_hierarchy:
+
 
 
 when@test:

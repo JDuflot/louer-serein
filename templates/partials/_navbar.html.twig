@@ -1,32 +1,38 @@
-  <div id="react-navbar">
-        <header class="header-nav">
-        <div class="navbar">
-            <div class="logo"> 
-               <a href={{ path('app_react') }}>
-                <img src={{ asset('img/clean-house.png') }} alt="logo"/>
-                <h1 class="header-title">Louer Serein</h1>
-                </a>
-            </div>
-        <nav>
-            <div class="ul-nav">
-               <a class="li-nav"><a href={{ path('app_react') }}>Accueil</a>
-               <a class="li-nav"><a href={{ path('app_react', {reactrouting:"about"}) }}>A Propos</a>
+<div id="react-navbar">
+	<header class="header-nav">
+		<div class="navbar">
+			<div class="logo">
+				<a href="{{ path('app_react') }}">
+					<img src="{{ asset('img/clean-house.png') }}" alt="logo"/>
+					<h1 class="header-title">Louer Serein</h1>
+				</a>
+			</div>
+			<nav>
+				<div class="ul-nav">
+					<a class="li-nav" href="{{ path('app_react') }}">Accueil</a>
+					<a class="li-nav" href="{{ path('app_react', {reactrouting: 'about'}) }}">A Propos</a>
 
-                <div class="li-deco">
-                   <a class="btn btn-deconnexion"><a href={{ path('app_logout') }} class="li-nav-deco" >Déconnexion</a>
-                   <a class="btn li-nav-deco"><a href={{ path('app_user_profile') }} class="li-nav-co" >Mon compte</a>
-                    <a class="btn li-nav-deco"><a href={{ path('app_user_profile') }} class="li-nav-deco" >Messagerie</a>
-                    {# à renvoyer dans la page messagerie #}
-                </div>
+					<div class="li-deco">
+						{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+							<a class="btn btn-deconnexion" href="{{ path('app_logout') }}">Déconnexion</a>
+							<a class="btn li-nav-deco" href="{{ path('app_user_profile') }}">Mon compte</a>
+							<a class="btn li-nav-deco" href="{{ path('app_chat') }}">Messagerie</a>
+						{% endif %}
+						{% if is_granted('ROLE_ADMIN') %}
+							<a class="btn li-nav-deco" href="{{ path('app_admin') }}">Dashboard</a>
 
-                <div class="li-connexion">
-                  <a class="btn btn-connexion"><a href={{ path('app_login') }} class="li-nav-co" >Se connecter</a></a>
-                  <a class="btn btn-connexion"><a href={{ path('app_register') }} class="li-nav-co" >S'inscrire</a>
-                </div>
+						{% else %}
+							<div class="li-connexion">
+								<a class="btn btn-connexion" href="{{ path('app_login') }}">Se connecter</a>
+								<a class="btn btn-connexion" href="{{ path('app_register') }}">S'inscrire</a>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</nav>
 
-            </div>
-        </nav>
-        </div>
-        </header>
-        </div>
+
+		</div>
+	</header>
+</div>
 

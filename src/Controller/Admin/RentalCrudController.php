@@ -32,10 +32,10 @@ class RentalCrudController extends AbstractCrudController
             TextField::new('location'),
             DateTimeField::new('updatedAt')
                 ->setFormTypeOption('disabled', 'disabled'),
-            // AssociationField::new('rentalEquipment')
-            // ->onlyOnIndex(),
-            // ArrayField::new('rentalEquipment')
-            // ->onlyOnDetail(),
+            AssociationField::new('rentalEquipment')
+            ->onlyOnIndex(),
+            ArrayField::new('rentalEquipment')
+            ->onlyOnDetail(),
         ];
     }
 }

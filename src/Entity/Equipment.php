@@ -27,8 +27,6 @@ class Equipment
     #[ORM\Column]
     private ?\DateTimeImmutable $updated_at = null;
 
-    // #[ORM\Column]
-    // private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\ManyToMany(targetEntity: RentalEquipment::class, mappedBy: 'equipment')]
     private Collection $rentalEquipment;
@@ -57,28 +55,6 @@ class Equipment
         return $this;
     }
 
-//     public function getAdditionalProperties(): ?array
-// {
-//     if ($this->additionalProperties === null) {
-//         return null;
-//     }
-// // explode pour récupérer les valeurs qu'il divise en string
-//     return explode(',', $this->additionalProperties);
-// }
-
-// public function setAdditionalProperties(?array $additionalProperties): static
-// {
-//     //on vérifie si $additionalProperties n'est pas nul
-//     // si elle n'est pas nul, valeurs supplémentaires, utilisé la fonction 'implode' pour fusionner toutes les valeurs du tableau en string
-//     if ($additionalProperties !== null) {
-//         $this->additionalProperties = implode(',', $additionalProperties);
-//     } else {
-//         $this->additionalProperties = null;
-//     }
-
-//     return $this;
-// }
-
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updated_at;
@@ -90,19 +66,6 @@ class Equipment
 
         return $this;
     }
-
-    // public function getCreatedAt(): ?\DateTimeImmutable
-    // {
-    //     return $this->created_at;
-    // }
-
-    // public function setCreatedAt(\DateTimeImmutable $created_at): static
-    // {
-    //     $this->created_at = $created_at;
-
-    //     return $this;
-    // }
-
     /**
      * @return Collection<int, RentalEquipment>
      */

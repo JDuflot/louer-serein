@@ -93,5 +93,5 @@ class RentalEquipment
         return $this;
     }
 
-   
+    
 }

@@ -2,15 +2,17 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Metadata\ApiResource;
-use App\Entity\Trait\CreatedAtTrait;
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use Assert\Regex;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
+use App\Entity\Trait\CreatedAtTrait;
+use ApiPlatform\Metadata\ApiResource;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'Il existe déjà un compte avec cet email')]
@@ -57,15 +59,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?int $rating = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Chat::class)]
-    private Collection $chats;
+    
+    
+
+    #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Rental::class, orphanRemoval: true)]
+    private Collection $rentals;
 
     
 
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
-        $this->chats = new ArrayCollection();
+       
+        $this->rentals = new ArrayCollection();
+        
     }
 
     public function getId(): ?int
@@ -222,35 +229,44 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+   
+
     /**
-     * @return Collection<int, Chat>
+     * @return Collection<int, Rental>
      */
-    public function getChats(): Collection
+    public function getRentals(): Collection
     {
-        return $this->chats;
+        return $this->rentals;
     }
 
-    public function addChat(Chat $chat): static
+    public function addRental(Rental $rental): static
     {
-        if (!$this->chats->contains($chat)) {
-            $this->chats->add($chat);
-            $chat->setUser($this);
+        if (!$this->rentals->contains($rental)) {
+            $this->rentals->add($rental);
+            $rental->setOwner($this);
         }
 
         return $this;
     }
 
-    public function removeChat(Chat $chat): static
+    public function removeRental(Rental $rental): static
     {
-        if ($this->chats->removeElement($chat)) {
+        if ($this->rentals->removeElement($rental)) {
             // set the owning side to null (unless already changed)
-            if ($chat->getUser() === $this) {
-                $chat->setUser(null);
+            if ($rental->getOwner() === $this) {
+                $rental->setOwner(null);
             }
         }
 
         return $this;
     }
-
+//     public static function loadValidatorMetadata(ClassMetadata $metadata): void
+//     {
+//     $metadata->addPropertyConstraint('email', new Assert\Regex([
+//         'pattern'=> "/^[a-zA-Z0-9\-\_]+$/",
+//         'match' => false,
+//         'message' => '',
+//     ]))
+// }
    
 }

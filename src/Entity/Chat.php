@@ -17,21 +17,23 @@ class Chat
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $sender = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $recipient = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
-    // #[ORM\Column]
-    // private ?\DateTimeImmutable $created_at = null;
+ 
 
     #[ORM\ManyToOne(inversedBy: 'chats')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $user = null;
+    private ?Rental $rental = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $sender = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $recipient = null;
 
     public function __construct()
     {
@@ -43,29 +45,7 @@ class Chat
         return $this->id;
     }
 
-    public function getSender(): ?string
-    {
-        return $this->sender;
-    }
-
-    public function setSender(string $sender): static
-    {
-        $this->sender = $sender;
-
-        return $this;
-    }
-
-    public function getRecipient(): ?string
-    {
-        return $this->recipient;
-    }
-
-    public function setRecipient(string $recipient): static
-    {
-        $this->recipient = $recipient;
-
-        return $this;
-    }
+   
 
     public function getMessage(): ?string
     {
@@ -79,26 +59,40 @@ class Chat
         return $this;
     }
 
-    // public function getCreatedAt(): ?\DateTimeImmutable
-    // {
-    //     return $this->created_at;
-    // }
 
-    // public function setCreatedAt(\DateTimeImmutable $created_at): static
-    // {
-    //     $this->created_at = $created_at;
 
-    //     return $this;
-    // }
-
-    public function getUser(): ?User
+    public function getRental(): ?Rental
     {
-        return $this->user;
+        return $this->rental;
     }
 
-    public function setUser(?User $user): static
+    public function setRental(?Rental $rental): static
     {
-        $this->user = $user;
+        $this->rental = $rental;
+
+        return $this;
+    }
+
+    public function getSender(): ?User
+    {
+        return $this->sender;
+    }
+
+    public function setSender(?User $sender): static
+    {
+        $this->sender = $sender;
+
+        return $this;
+    }
+
+    public function getRecipient(): ?User
+    {
+        return $this->recipient;
+    }
+
+    public function setRecipient(?User $recipient): static
+    {
+        $this->recipient = $recipient;
 
         return $this;
     }

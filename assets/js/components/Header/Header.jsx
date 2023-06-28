@@ -28,19 +28,20 @@ function Header() {
             <ul className="ul-nav">
                <li className="li-nav"><Link to="/">Accueil</Link></li>
                <li className="li-nav"><Link to="/about">A Propos</Link></li>
-               {isLoggedIn ? (
+               {/* {isLoggedIn ? ( */}
                 <ul className="li-deco">
-                   <li className="btn btn-deconnexion" onClick={handleLogin}><Link className="li-nav-deco" reloadDocument={true} to="/logout">Déconnexion</Link></li>
+                   <li className="btn btn-deconnexion" ><Link className="li-nav-deco" reloadDocument={true} to="/logout">Déconnexion</Link></li>
                    <li className="btn li-nav-deco"><Link className="li-nav-co" reloadDocument={true} to="/user_profile">Mon compte</Link></li>
+                   <li className="btn li-nav-deco"><Link className="li-nav-co" reloadDocument={true} to="/admin">Dashboard</Link></li>
                     <li className="btn li-nav-deco"><Link className="li-nav-deco" reloadDocument={true} to="/user_profile">Messagerie</Link></li>
                 </ul>
                
-              ) : (
+              {/* ) : ( */}
                 <ul className="li-connexion">
-                  <li className="btn btn-connexion" onClick={handleLogout}><Link className="li-nav-co" reloadDocument={true} to="/login">Se connecter</Link></li>
-                  <li className="btn btn-connexion" onClick={handleLogout}><Link className="li-nav-co" reloadDocument={true} to="/register">S'inscrire</Link></li>
+                  <li className="btn btn-connexion" ><Link className="li-nav-co" reloadDocument={true} to="/login">Se connecter</Link></li>
+                  <li className="btn btn-connexion"><Link className="li-nav-co" reloadDocument={true} to="/register">S'inscrire</Link></li>
                 </ul>
-              )}
+              {/* )} */}
 
             </ul>
         </nav>

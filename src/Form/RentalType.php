@@ -17,9 +17,8 @@ class RentalType extends AbstractType
             ->add('description')
             ->add('price')
             ->add('location')
-            ->add('updated_at')
-            ->add('created_at')
-            ->add('slug')
+           
+
         ;
     }
 

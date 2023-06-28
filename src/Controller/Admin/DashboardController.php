@@ -13,12 +13,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
-    #[Route('/admin', name: 'admin')]
+    #[Route('/admin', name: 'app_admin')]
+    #[IsGranted("ROLE_ADMIN")]
     public function index(): Response
     {
        
@@ -41,7 +43,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Équipements', 'fas fa-info-circle', Equipment::class);
         // yield MenuItem::linkToCrud('Équipements de la location', 'fas fa-info-circle', RentalEquipment::class);
         yield MenuItem::linkToCrud('Images', 'fas fa-tag', Picture::class);
-        yield MenuItem::linkToCrud('Messagerie', 'fas fa-list', Chat::class);
+        yield MenuItem::linkToCrud('Messagerie', 'fas fa-envelope', Chat::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
     }
 }

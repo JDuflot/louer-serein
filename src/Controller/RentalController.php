@@ -5,12 +5,14 @@ namespace App\Controller;
 use App\Entity\Rental;
 use App\Form\RentalType;
 use App\Repository\RentalRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/rental')]
+// #[IsGranted('ROLE_USER')]
 class RentalController extends AbstractController
 {
     #[Route('/', name: 'app_rental_index', methods: ['GET'])]

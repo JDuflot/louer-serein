@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Rental
 {
     use CreatedAtTrait;
-    use SlugTrait;
+    // use SlugTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -49,12 +49,20 @@ class Rental
     #[ORM\OneToMany(mappedBy: 'rental', targetEntity: RentalEquipment::class)]
     private Collection $rentalEquipment;
 
+    #[ORM\ManyToOne(inversedBy: 'rentals')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $owner = null;
+
+    #[ORM\OneToMany(mappedBy: 'rental', targetEntity: Chat::class, orphanRemoval: true)]
+    private Collection $chats;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
         $this->rentalEquipment = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
         $this->updated_at = new \DateTimeImmutable();
+        $this->chats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -193,8 +201,51 @@ class Rental
 
         return $this;
     }
-    // public function __toString()
-    // {
-    //     return $this->getRentalEquipment()->getTitle();
-    // }
+    public function __toString()
+    {
+        return $this->title;
+        
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): static
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Chat>
+     */
+    public function getChats(): Collection
+    {
+        return $this->chats;
+    }
+
+    public function addChat(Chat $chat): static
+    {
+        if (!$this->chats->contains($chat)) {
+            $this->chats->add($chat);
+            $chat->setRental($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChat(Chat $chat): static
+    {
+        if ($this->chats->removeElement($chat)) {
+            // set the owning side to null (unless already changed)
+            if ($chat->getRental() === $this) {
+                $chat->setRental(null);
+            }
+        }
+
+        return $this;
+    }
 }
