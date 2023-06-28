@@ -28,9 +28,13 @@
         color: $color-quinary;
         font-size: 38px;
         font-family: Dancing-Script;
+        
         margin-top: 13%;
         @include small-screen {
             display: none;
+    }
+    h1{
+        text-decoration: none;
     }
     }
 
