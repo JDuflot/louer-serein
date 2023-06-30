@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\UserRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,10 +20,15 @@ class UserProfileController extends AbstractController
     public function profile(): Response
     {
 
+
         $user = $this->getUser(); // je recupère l'utilisateur connecté
+        $rental = $user->getRentals();
+
         return $this->render('user_profile/index.html.twig', [
             'controller_name' => 'UserProfileController',
             'user' => $user,
+            'rental'=> $rental,
+            
 
         ]);
     }

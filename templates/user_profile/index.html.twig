@@ -6,7 +6,7 @@
 
 
 {% block body %}
-	<div id="react-navbar"></div>
+	{# <div id="react-navbar"></div> #}
 
 	<h2>Mon compte utilisateur</h2>
 	
@@ -15,15 +15,13 @@
 		{% if app.user %}
 		 <div class="perso">
 			<div class="perso-name">
-				<img class="perso-picture" alt="">
-				<h3>{{ user.firstname }}</h3>
+				<img src={{user.picture}} alt="" class="perso-picture" alt="">
+				<h3>{{ user.firstname }} {{ user.lastname }}</h3>
 			</div>
 			<div class="perso-info">
 				<p>{{ user.email }}</p>
 			</div>
-			 {# <div class="perso-info">
-				<p>{{ user.plainPassword }}</p>
-			</div>  #}
+		
 			 <div class="perso-info">
 				<p>{{ user.address }}</p>
 			</div>
@@ -34,46 +32,34 @@
 				<p>{{ user.city }}</p> 
 			</div>
 			<div class="perso-actions">
-				<button class="btn btn-success perso-btn-edit">Modifier</button>
-				<button class="btn btn-danger perso-btn-edit">Annuler</button>
-				<button class="btn btn-primary perso-btn-edit">Enregistrer</button>
+				<button class=" perso-btn-edit">Modifier</button>
+				<button class=" perso-btn-edit">Annuler</button>
+				<button class=" perso-btn-edit">Enregistrer</button>
 			</div>
 		</div>
 		{% endif %}
 
-		<div class="user">
-			<h2>Mes réservations</h2>
-			
-			<div class="user-booking">
-				<div class="booking">
-					<img class="booking-img" alt="">
-					<div class="booking-txt">
-						<p class="booking desc">Description de l'appartement, Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptates nihil ullam ratione enim dignissimos odio asperiores nulla praesentium? Eum at commodi dignissimos dolorum voluptatibus laborum molestias. Assumenda, vero ipsum.</p>
-					</div>
-				</div>
-			</div>
-			<div class="user-booking">
-				<div class="booking">
-					<img class="booking-img" alt="">
-					<div class="booking-txt">
-						<p class="booking desc">Description de l'appartement, Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptates nihil ullam ratione enim dignissimos odio asperiores nulla praesentium? Eum at commodi dignissimos dolorum voluptatibus laborum molestias. Assumenda, vero ipsum.</p>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="rental">
 			<h2>Ma location</h2>
 			<div class="user-rating">
-			
+			{% for rentals in user.rentals %}
 				<div class="rating">
-					<img class="rating-img" alt="">
+					<div class="rating-details">
+					<img src={{rentals.cover}} class="rating-img" alt="">
+					<p class="rating-location">{{rentals.location}}</p>
+					</div>
 					<div class="rating-txt">
-						<p class="rating-desc">Description de l'appartement, Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptates nihil ullam ratione enim dignissimos odio asperiores nulla praesentium? Eum at commodi dignissimos dolorum voluptatibus laborum molestias. Assumenda, vero ipsum.</p>
+						<p class="rating-desc">{{ rentals.description}}</p>
 					</div>
 				</div>
+			
 			</div>
+			{# <div class="rental-actions">
 			<a class="btn btn-add-rental" href="{{ path('app_rental_new') }}">Ajouter une location</a>
+			<a class="btn btn-add-rental" href="{{ path('{reactrouting}/{{rentals.id}}') }}">Voir la location</a>
 			<a class="btn btn-add-rental" href="#">Supprimer ma location</a>
+			</div> #}
+			{% endfor %}
 		</div>
 
 	</div>

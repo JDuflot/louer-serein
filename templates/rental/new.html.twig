@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Rental{% endblock %}
+{% block title %}Ajouter une location{% endblock %}
 
 {% block body %}
-    <h1>Create new Rental</h1>
-
+    <h1>Ajouter une location</h1>
+<section class="container my-3">
+	<div class="container form-registration card shadow-lg border-success">
+		<div class="row">
+			<div class="col mt-3">
     {{ include('rental/_form.html.twig') }}
+   </div>
+   </div>
+    </section>
 
-    <a href="{{ path('app_rental_index') }}">back to list</a>
+    <a class="link-profile" href="{{ path('app_user_profile') }}"> Revenir à mon profil</a>
 {% endblock %}

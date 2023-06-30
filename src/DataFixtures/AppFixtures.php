@@ -53,7 +53,7 @@ class AppFixtures extends Fixture
                 ->setLastname($faker->lastname())
                 ->setPassword($this->hasher->hashPassword($user,'password'))
                 ->setPicture("https://i.pravatar.cc/150?u=" . $faker->randomNumber())
-                ->setAddress($faker->address())
+                ->setAddress($faker->streetAddress())
                 ->setZip($faker->departmentNumber() . '000')
                 ->setCity($faker->city())
                 ->setRating($faker->numberBetween(1, 5));

@@ -7,26 +7,31 @@
 					<h1 class="header-title">Louer Serein</h1>
 				</a>
 			</div>
+			
 			<nav>
 				<div class="ul-nav">
+
 					<a class="li-nav" href="{{ path('app_react') }}">Accueil</a>
 					<a class="li-nav" href="{{ path('app_react', {reactrouting: 'about'}) }}">A Propos</a>
 
-					<div class="li-deco">
-						{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-							<a class="btn btn-deconnexion" href="{{ path('app_logout') }}">Déconnexion</a>
-							<a class="btn li-nav-deco" href="{{ path('app_user_profile') }}">Mon compte</a>
-							<a class="btn li-nav-deco" href="{{ path('app_chat') }}">Messagerie</a>
-						{% endif %}
-						{% if is_granted('ROLE_ADMIN') %}
-							<a class="btn li-nav-deco" href="{{ path('app_admin') }}">Dashboard</a>
+					{% if is_granted('ROLE_ADMIN') %}
+						<a class="li-nav" href="{{ path('app_admin') }}">Dashboard</a>
+					{% endif %}
+					
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
-						{% else %}
-							<div class="li-connexion">
-								<a class="btn btn-connexion" href="{{ path('app_login') }}">Se connecter</a>
-								<a class="btn btn-connexion" href="{{ path('app_register') }}">S'inscrire</a>
-							</div>
-						{% endif %}
+							
+								<a class="li-nav" href="{{ path('app_user_profile') }}">Mon compte</a>
+								<a class="li-nav" href="{{ path('app_chat') }}">Messagerie</a>
+								<a class="li-nav" href="{{ path('app_logout') }}">Déconnexion</a>
+							
+
+					{% else %}
+							
+								<a class="li-nav" href="{{ path('app_login') }}">Se connecter</a>
+								<a class="li-nav" href="{{ path('app_register') }}">S'inscrire</a>
+						
+					{% endif %}
 					</div>
 				</div>
 			</nav>

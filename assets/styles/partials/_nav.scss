@@ -1,3 +1,6 @@
+#react-navbar{
+    margin-bottom: 3%;
+}
 .header-nav{
     display: flex;
     width: 76%;
@@ -10,8 +13,8 @@
         padding-top: 5px;
     }
     .navbar{
-        display: flex;
-        width: 100%;
+  
+        width: 80%;
         height: 120px;
     }
     .logo a{
@@ -40,7 +43,7 @@
 
     .logo,img{
         width: 120px;
-        
+
         @include small-screen {
             width: 80px;
             margin-top: 5%;
@@ -49,9 +52,11 @@
 
     .ul-nav{
         display: flex;
-        width: 1050px;
-        justify-content: space-between;
+        width: 900px;
+        justify-content: space-around;
+        align-items: center;
         
+
         a{
            
             color: $color-secondary;
@@ -68,64 +73,5 @@
                 font-size: 12px;
         }
      }
-     
-    .li-connexion{
-            display: flex;
-            width: 45%;
-            // border: 1px solid red;
-
-            .btn-connexion{
-                width:60%;
-                margin-left: 2%;
-                border: none;
-                background-color: $color-secondary;
-                color: $color-primary;
-                
-                 }
-                 .li-nav-co{
-                    width:40%;
-                    margin-left: 2%;
-                    border: none;
-                    background-color: $color-quinary;
-                    color: $color-secondary;
-                 }
-            }
-    .li-deco{
-            display: flex;
-            width: 45%;
-
-            .btn-deconnexion{
-                width: 30%;
-                height: 50px;
-                margin-left: 2%;
-                border: none;
-                background-color: $color-secondary;
-                color: $color-primary;
-            }
-            .li-nav-co{
-                width: 30%;
-                height: 50px;
-                margin-left: 2%;
-                border: none;
-                background-color: $color-quinary;
-                color: $color-secondary;
-                font-size: 15px;
-                padding-top: 3.5%;
-                font-weight: 600;
-            }
-    }
-    .li-nav-co{
-        width: 30%;
-        border: 1px solid red;
-        height: 50px;
-        margin-left: 10%;
-        border: none;
-        background-color: $color-quinary;
-        color: $color-secondary;
-        font-size: 15px;
-        padding-top: 3.5%;
-        font-weight: 600;
-    }
-
 
 }

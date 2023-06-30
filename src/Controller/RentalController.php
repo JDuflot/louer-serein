@@ -12,10 +12,11 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/rental')]
-// #[IsGranted('ROLE_USER')]
+
 class RentalController extends AbstractController
 {
     #[Route('/', name: 'app_rental_index', methods: ['GET'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function index(RentalRepository $rentalRepository): Response
     {
         return $this->render('rental/index.html.twig', [
@@ -24,6 +25,7 @@ class RentalController extends AbstractController
     }
 
     #[Route('/new', name: 'app_rental_new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_USER')]
     public function new(Request $request, RentalRepository $rentalRepository): Response
     {
         $rental = new Rental();

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Assert\Regex;
+use App\Entity\Rental;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use App\Entity\Trait\CreatedAtTrait;
@@ -63,6 +64,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     
 
     #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Rental::class, orphanRemoval: true)]
+    #[ApiResource]
     private Collection $rentals;
 
     
