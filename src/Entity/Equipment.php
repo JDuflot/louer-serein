@@ -27,13 +27,8 @@ class Equipment
     #[ORM\Column]
     private ?\DateTimeImmutable $updated_at = null;
 
-
-    #[ORM\ManyToMany(targetEntity: RentalEquipment::class, mappedBy: 'equipment')]
-    private Collection $rentalEquipment;
-
     public function __construct()
     {
-        $this->rentalEquipment = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
         $this->updated_at = new \DateTimeImmutable();
     }
@@ -66,34 +61,8 @@ class Equipment
 
         return $this;
     }
-    /**
-     * @return Collection<int, RentalEquipment>
-     */
-    public function getRentalEquipment(): Collection
-    {
-        return $this->rentalEquipment;
-    }
-
-    public function addRentalEquipment(RentalEquipment $rentalEquipment): static
-    {
-        if (!$this->rentalEquipment->contains($rentalEquipment)) {
-            $this->rentalEquipment->add($rentalEquipment);
-            $rentalEquipment->addEquipment($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRentalEquipment(RentalEquipment $rentalEquipment): static
-    {
-        if ($this->rentalEquipment->removeElement($rentalEquipment)) {
-            $rentalEquipment->removeEquipment($this);
-        }
-
-        return $this;
-    }
     public function __toString()
     {
-       return $this->name;
+        return $this->name;
     }
 }

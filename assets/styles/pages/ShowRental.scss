@@ -1,0 +1,24 @@
+ul.equipments-name{
+    padding: 0 !important;
+    .equipments-name-details{
+        font-size: 18px;
+    font-weight: 400;
+    font-family: 'Montserrat',sans-serif;
+}
+}
+.btn-profile{
+    background-color: $color-secondary;
+    color: $color-primary;
+    &:hover{
+        background-color:$color-quinary;
+    }
+}
+
+.btn-edit{
+    background-color: $color-primary;
+    color: $color-secondary;
+    border: 1px solid $color-secondary;
+    &:hover{
+        background-color:$color-quinary;
+    }
+}

@@ -41,28 +41,31 @@
 
 		<div class="rental">
 			<h2>Ma location</h2>
-			<div class="user-rating">
 			{% for rentals in user.rentals %}
+			<div class="user-rating">
 				<div class="rating">
 					<div class="rating-details">
-					<img src={{rentals.cover}} class="rating-img" alt="">
+					<p class="rating-title">{{rentals.title}}</p>
+				
+					{# <img src={{rentals.cover}} class="rating-img" alt=""> #}
+					<img class="rating-img" src="{{ vich_uploader_asset(rentals, 'imageFile') }}" alt="{{ rentals.imageName }}">
+
 					<p class="rating-location">{{rentals.location}}</p>
 					</div>
 					<div class="rating-txt">
 						<p class="rating-desc">{{ rentals.description}}</p>
 					</div>
 				</div>
-			
 			</div>
-			{# <div class="rental-actions">
+			
+			 <div class="rental-actions">
 			<a class="btn btn-add-rental" href="{{ path('app_rental_new') }}">Ajouter une location</a>
-			<a class="btn btn-add-rental" href="{{ path('{reactrouting}/{{rentals.id}}') }}">Voir la location</a>
-			<a class="btn btn-add-rental" href="#">Supprimer ma location</a>
-			</div> #}
-			{% endfor %}
+			<a class="btn btn-add-rental" href="{{ path('app_rental_show', {'id': rentals.id}) }}">Voir la location</a>
+			 <a class="btn btn-add-rental" href="{{ path('app_rental_delete', {'id': rentals.id}) }}">Supprimer ma location</a>
+			</div>
+		{% endfor %}
 		</div>
-
+		</div>
 	</div>
-
 
 {% endblock %}

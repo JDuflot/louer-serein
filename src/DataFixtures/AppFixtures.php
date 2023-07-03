@@ -9,7 +9,7 @@ use Faker\Generator;
 use App\Entity\Rental;
 use App\Entity\Picture;
 use App\Entity\Equipment;
-use App\Entity\RentalEquipment;
+// use App\Entity\RentalEquipment;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -17,8 +17,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
-    public function __construct
-    (private KernelInterface $kernel, private UserPasswordHasherInterface $hasher)
+    public function __construct(private KernelInterface $kernel, private UserPasswordHasherInterface $hasher)
     {
     }
 
@@ -51,7 +50,7 @@ class AppFixtures extends Fixture
                 ->setEmail($faker->email())
                 ->setFirstname($faker->firstname())
                 ->setLastname($faker->lastname())
-                ->setPassword($this->hasher->hashPassword($user,'password'))
+                ->setPassword($this->hasher->hashPassword($user, 'password'))
                 ->setPicture("https://i.pravatar.cc/150?u=" . $faker->randomNumber())
                 ->setAddress($faker->streetAddress())
                 ->setZip($faker->departmentNumber() . '000')
@@ -60,7 +59,7 @@ class AppFixtures extends Fixture
             $users[] = $user;
             $manager->persist($user);
         }
-        $rentals= [];
+        $rentals = [];
         foreach ($rentalJsons as $data) {
             $rental = new Rental();
             $rental
@@ -70,28 +69,28 @@ class AppFixtures extends Fixture
                 ->setLocation($data['location'])
                 ->setPrice($faker->numberBetween(55, 550))
                 ->setUpdatedAt(new \DateTimeImmutable())
-                ->setOwner($faker->randomElement ($users));
+                ->setOwner($faker->randomElement($users));
 
             $manager->persist($rental);
             $rentals[] = $rental;
-            
-            $rentalEquipment = new RentalEquipment;
-            $rentalEquipment->setRental($rental);
-            foreach ($data['equipments'] as $equip){
-                $rentalEquipment->addEquipment($equipments[$equip]);
-            }
-            $manager->persist($rentalEquipment);
 
+            // $rentalEquipment = new RentalEquipment;
+            // $rentalEquipment->setRental($rental);
+            // $manager->persist($rentalEquipment);
+
+            foreach ($data['equipments'] as $equip) {
+                $rental->addEquipment($equipments[$equip]);
+            }
         }
 
-        
+
         for ($l = 0; $l < 1; $l++) {
             $admin = new User();
             $admin
                 ->setEmail($faker->email())
                 ->setFirstname('Admin')
                 ->setLastname('Location')
-                ->setPassword($this->hasher->hashPassword($admin,'password'))
+                ->setPassword($this->hasher->hashPassword($admin, 'password'))
                 ->setRoles(['ROLE_USER', 'ROLE_ADMIN'])
                 ->setPicture("https://i.pravatar.cc/150?u=" . $faker->randomNumber())
                 ->setAddress('2 rue de la liberté')
@@ -101,7 +100,7 @@ class AppFixtures extends Fixture
             $user = $admin;
             $manager->persist($admin);
         }
-        
+
         foreach ($rentals as $rental) {
             for ($i = 0; $i < mt_rand(0, 3); $i++) {
                 $chat = new Chat();

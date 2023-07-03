@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, redirect  } from "react-router-dom"
 import Logo from '../../assets/logo/clean-house.png'
 import Home from "../../pages/Home"
 import React, { useState } from 'react';
@@ -8,6 +8,7 @@ function Header() {
 
     const handleLogin = () => {
         setIsLoggedIn(true);
+        window.location.href="/login";
     };
 
     const handleLogout = () => {
@@ -33,12 +34,12 @@ function Header() {
                    <li className="btn btn-deconnexion" ><Link className="li-nav-deco" reloadDocument={true} to="/logout" onClick={handleLogout}>Déconnexion</Link></li>
                    <li className="btn li-nav-deco"><Link className="li-nav-co" reloadDocument={true} to="/user_profile">Mon compte</Link></li>
                    <li className="btn li-nav-deco"><Link className="li-nav-co" reloadDocument={true} to="/admin">Dashboard</Link></li>
-                    <li className="btn li-nav-deco"><Link className="li-nav-deco" reloadDocument={true} to="/user_profile">Messagerie</Link></li>
+                    <li className="btn li-nav-deco"><Link className="li-nav-deco" reloadDocument={true} to="/chat">Messagerie</Link></li>
                 </ul>
                
               ) : (
                 <ul className="li-connexion">
-                  <li className="btn btn-connexion" ><Link className="li-nav-co" reloadDocument={true} to="/login" onClick={handleLogin}>Se connecter</Link></li>
+                  <li className="btn btn-connexion" ><Link className="li-nav-co" to="/login" onClick={handleLogin}>Se connecter</Link></li>
                   <li className="btn btn-connexion"><Link className="li-nav-co" reloadDocument={true} to="/register">S'inscrire</Link></li>
                 </ul>
               )}

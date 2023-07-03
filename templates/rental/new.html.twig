@@ -1,17 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter une location{% endblock %}
+{% block title %}Ajouter une location
+{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une location</h1>
-<section class="container my-3">
-	<div class="container form-registration card shadow-lg border-success">
-		<div class="row">
-			<div class="col mt-3">
-    {{ include('rental/_form.html.twig') }}
-   </div>
-   </div>
-    </section>
+	<h2>Ajouter une location</h2>
+	<section class="container my-3">
+		<div class="container form-registration card shadow-lg border-success">
+			<div class="row">
+				<div class="col mt-3">
 
-    <a class="link-profile" href="{{ path('app_user_profile') }}"> Revenir à mon profil</a>
-{% endblock %}
+					 {{ form_start(form) }}
+					<fieldset>
+						<legend>Ma location</legend>
+						{{ form_widget(form.title, {label: 'Titre'}) }}
+						{{ form_widget(form.description) }}
+						{{ form_widget(form.imageFile) }}
+						{{ form_widget(form.price) }}
+						{{ form_widget(form.location) }}
+						{{ form_widget(form.equipments, {label: 'Equipements'}) }}
+					</fieldset>
+
+					<button type="submit" class="btn btn-save mt-3 mb-3">{{ button_label|default('Sauvegarder') }}</button>
+					{{ form_end(form) }}
+
+					{# {{ include('rental/_form.html.twig') }} #}
+				</div>
+			</div>
+		</section>
+
+		<a class="link-profile" href="{{ path('app_user_profile') }}">
+			Revenir à mon profil</a>
+	{% endblock %}
+

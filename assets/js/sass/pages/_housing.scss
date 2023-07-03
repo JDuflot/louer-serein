@@ -1,0 +1,13 @@
+.btn-chat{
+    background-color: $color-secondary;
+    color: $color-primary;
+    margin-left: 78%;
+    margin-top: 1%;
+
+  }
+  a.btn-chat{
+    text-decoration: none;
+    &:hover{
+        background-color: $color-quinary;
+    }
+  }

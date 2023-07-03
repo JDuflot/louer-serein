@@ -3,11 +3,31 @@
 {% block title %}Edit Rental{% endblock %}
 
 {% block body %}
-    <h1>Edit Rental</h1>
+    <h2>Éditer la location</h2>
+    <section class="container my-3">
+	<div class="container form-registration card shadow-lg border-success">
+		<div class="row">
+			<div class="col mt-3">
+            
+					{{ form_start(form) }}
+					<fieldset>
+						<legend>Ma location</legend>
+						{{ form_widget(form.title) }}
+						{{ form_widget(form.description) }}
+						{# {{ form_widget(form.cover) }} #}
+						{{ form_widget(form.imageFile) }}
+						{{ form_widget(form.price) }}
+						{{ form_widget(form.location) }}
+						{{ form_widget(form.equipments) }}
+					</fieldset>
 
-    {{ include('rental/_form.html.twig', {'button_label': 'Update'}) }}
+					<button type="submit" class="btn btn-save mt-3 mb-3">{{ button_label|default('Sauvegarder') }}</button>
+					{{ form_end(form) }}
 
-    <a href="{{ path('app_rental_index') }}">back to list</a>
-
-    {{ include('rental/_delete_form.html.twig') }}
+  
+    <a class="btn btn-primary mb-2 col-2" href="{{ path('app_user_profile') }}">Revenir à mon profil</a>
+    
+ </div>
+   </div>
+    </section>
 {% endblock %}

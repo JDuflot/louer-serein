@@ -7,7 +7,7 @@ use App\Entity\User;
 use App\Entity\Rental;
 use App\Entity\Picture;
 use App\Entity\Equipment;
-use App\Entity\RentalEquipment;
+
 use App\Controller\Admin\RentalCrudController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,6 +28,7 @@ class DashboardController extends AbstractDashboardController
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
         return $this->redirect($adminUrlGenerator->setController(RentalCrudController::class)->generateUrl());
 
+
     }
 
     public function configureDashboard(): Dashboard
@@ -41,9 +42,9 @@ class DashboardController extends AbstractDashboardController
         
         yield MenuItem::linkToCrud('Locations', 'fas fa-building', Rental::class);
         yield MenuItem::linkToCrud('Équipements', 'fas fa-info-circle', Equipment::class);
-        // yield MenuItem::linkToCrud('Équipements de la location', 'fas fa-info-circle', RentalEquipment::class);
         yield MenuItem::linkToCrud('Images', 'fas fa-tag', Picture::class);
         yield MenuItem::linkToCrud('Messagerie', 'fas fa-envelope', Chat::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
+        yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'app_user_profile');
     }
 }

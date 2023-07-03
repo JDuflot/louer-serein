@@ -27,7 +27,7 @@ function Sheet(props) {
 					</div>
 					<div className="host">
 						<div className='host-name-img'>
-							<div >
+							<div className='div-host'>
 								<span className='host-name'> {props.hosts.name}</span>
 								<span><img className='host-img' src={props.hosts.picture} alt="host of this accomodation" /></span>
 							</div>
