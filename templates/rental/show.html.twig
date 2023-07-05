@@ -4,30 +4,22 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Rental</h1>
+	<h2>Ma Location</h2>
 	<section class="container my-3">
 		<div class="container form-registration card shadow-lg border-success">
 			<div class="row">
 				<div class="col mt-3">
 					<table class="table">
 						<tbody>
-							{# <tr>
-							                <th>Id</th>
-							                <td>{{ rental.id }}</td>
-							            </tr> #}
 							<tr>
 								<th>Titre</th>
 								<td>{{ rental.title }}</td>
 							</tr>
 							<tr>
 								<th>Couverture</th>
-
 								<td>
-
-									<img src="{{ vich_uploader_asset(rental, 'imageFile')|default(asset('images/appartTemoin.jpg')) }}" class="img-fluid col-3">
-
+									<img src="{{ vich_uploader_asset(rental, 'imageFile')|default(asset('images/appartTemoin.jpg')) }}" class="img-fluid col-3" alt="Image de la couverture de la location">
 								</td>
-
 							</tr>
 							<tr>
 								<th>Description</th>
@@ -44,36 +36,22 @@
 							<tr>
 								<th>Équipement(s)</th>
 								<td>
-								{% if rental.equipments is defined and rental.equipments is not empty %}
-									<ul class="equipments-name">
-								{% for equipment in rental.equipments %}
-									<li class="equipments-name-details">{{ equipment.name }}</li>
-								{% endfor %}
+									{% if rental.equipments is defined and rental.equipments is not empty %}
+										<ul class="equipments-name">
+											{% for equipment in rental.equipments %}
+												<li class="equipments-name-details">{{ equipment.name }}</li>
+											{% endfor %}
 										</ul>
-								{% else %}
+									{% else %}
 										<p>Aucun équipement disponible</p>
-								{% endif %}
-
-
+									{% endif %}
 								</td>
 							</tr>
-
-							{# <tr>
-							                <th>Updated_at</th>
-							                <td>{{ rental.updatedAt ? rental.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-							            </tr>
-							            <tr>
-							                <th>Created_at</th>
-							                <td>{{ rental.createdAt ? rental.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-							            </tr> #}
-
 						</tbody>
 					</table>
 				</div>
 			</div>
-
 			<a class="btn btn-profile col-2 mt-3" href="{{ path('app_user_profile') }}">Revenir à mon profil</a>
-
 			<a class="btn btn-edit col-2 mt-3" href="{{ path('app_rental_edit', {'id': rental.id}) }}">Éditer ma location</a>
 			{{ include('rental/_delete_form.html.twig') }}
 		</section>

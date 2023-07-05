@@ -13,12 +13,12 @@
 					 {{ form_start(form) }}
 					<fieldset>
 						<legend>Ma location</legend>
-						{{ form_widget(form.title, {label: 'Titre'}) }}
-						{{ form_widget(form.description) }}
+						{{ form_widget(form.title) }}
+						{{ form_widget(form.description)}}
 						{{ form_widget(form.imageFile) }}
 						{{ form_widget(form.price) }}
 						{{ form_widget(form.location) }}
-						{{ form_widget(form.equipments, {label: 'Equipements'}) }}
+						{{ form_widget(form.equipments) }}
 					</fieldset>
 
 					<button type="submit" class="btn btn-save mt-3 mb-3">{{ button_label|default('Sauvegarder') }}</button>

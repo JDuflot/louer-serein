@@ -1,13 +1,12 @@
-<div id="react-navbar">
 	<header class="header-nav">
 		<div class="navbar">
 			<div class="logo">
-				<a href="{{ path('app_react') }}">
+				<a class="link-nav" href="{{ path('app_react') }}">
 					<img src="{{ asset('images/clean-house.png') }}" alt="logo"/>
 					<h1 class="header-title">Louer Serein</h1>
 				</a>
 			</div>
-			
+
 			<nav>
 				<div class="ul-nav">
 
@@ -17,27 +16,26 @@
 					{% if is_granted('ROLE_ADMIN') %}
 						<a class="li-nav" href="{{ path('app_admin') }}">Dashboard</a>
 					{% endif %}
-					
+
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
-							
-								<a class="li-nav" href="{{ path('app_user_profile') }}">Mon compte</a>
-								<a class="li-nav" href="{{ path('app_chat') }}">Messagerie</a>
-								<a class="li-nav" href="{{ path('app_logout') }}">Déconnexion</a>
-							
+
+						<a class="li-nav" href="{{ path('app_user_profile') }}">Mon compte</a>
+						<a class="li-nav" href="{{ path('app_chat') }}">Messagerie</a>
+						<a class="li-nav" href="{{ path('app_logout') }}">Déconnexion</a>
+
 
 					{% else %}
-							
-								<a class="li-nav" href="{{ path('app_login') }}">Se connecter</a>
-								<a class="li-nav" href="{{ path('app_register') }}">S'inscrire</a>
-						
+
+						<a class="li-nav" href="{{ path('app_login') }}">Se connecter</a>
+						<a class="li-nav" href="{{ path('app_register') }}">S'inscrire</a>
+
 					{% endif %}
-					</div>
 				</div>
-			</nav>
+			</div>
+		</nav>
 
 
-		</div>
-	</header>
-</div>
+	</div>
+</header>
 

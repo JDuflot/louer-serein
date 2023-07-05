@@ -1,22 +1,24 @@
 import { Link, redirect  } from "react-router-dom"
 import Logo from '../../assets/logo/clean-house.png'
 import Home from "../../pages/Home"
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import AuthContext from "../../Contexts/AuthContext";
 
 function Header() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const auth = useContext(AuthContext);
     const handleLogin = () => {
-        setIsLoggedIn(true);
         window.location.href="/login";
     };
 
     const handleLogout = () => {
-        setIsLoggedIn(false);
+      auth.logout();
+      window.location.href="/logout";
     };
+
+
     return(
 <>
-        <div id="react-navbar">
+
         <header className="header-nav">
         <div className="navbar">
             <div className="logo"> 
@@ -29,26 +31,35 @@ function Header() {
             <ul className="ul-nav">
                <li className="li-nav"><Link to="/">Accueil</Link></li>
                <li className="li-nav"><Link to="/about">A Propos</Link></li>
-               {isLoggedIn ? (
-                <ul className="li-deco">
-                   <li className="btn btn-deconnexion" ><Link className="li-nav-deco" reloadDocument={true} to="/logout" onClick={handleLogout}>Déconnexion</Link></li>
-                   <li className="btn li-nav-deco"><Link className="li-nav-co" reloadDocument={true} to="/user_profile">Mon compte</Link></li>
-                   <li className="btn li-nav-deco"><Link className="li-nav-co" reloadDocument={true} to="/admin">Dashboard</Link></li>
-                    <li className="btn li-nav-deco"><Link className="li-nav-deco" reloadDocument={true} to="/chat">Messagerie</Link></li>
-                </ul>
-               
+               {auth.currentUser ? (
+                <>
+                  <li className="li-nav">
+                    <Link className="li-nav" reloadDocument={true} to="/user_profile">Mon compte
+                    </Link>
+                  </li>
+                  <li className="li-nav">
+                      <Link className="li-nav" reloadDocument={true} to="/chat">Messagerie
+                      </Link>
+                      </li>
+                  <li className="li-nav" >
+                    <Link className="li-nav" to="/logout" onClick={handleLogout}>Déconnexion
+                    </Link>
+                  </li>
+                </>
+
               ) : (
-                <ul className="li-connexion">
-                  <li className="btn btn-connexion" ><Link className="li-nav-co" to="/login" onClick={handleLogin}>Se connecter</Link></li>
-                  <li className="btn btn-connexion"><Link className="li-nav-co" reloadDocument={true} to="/register">S'inscrire</Link></li>
-                </ul>
+                <>
+                  <li className="li-nav">
+                    <Link className="li-nav" to="/login" onClick={handleLogin}>Se connecter</Link></li>
+                  <li className="li-nav"><Link className="li-nav" reloadDocument={true} to="/register">S'inscrire</Link></li>
+                </>
               )}
 
             </ul>
         </nav>
         </div>
         </header>
-        </div>
+      
 </>
     )
 }

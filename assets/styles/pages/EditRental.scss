@@ -2,3 +2,17 @@ h2{
     color: $color-secondary;
     margin-top: 2%;
 }
+.btn-profile{
+    background-color: $color-secondary;
+    color: $color-primary;
+    &:hover{
+        background-color:$color-quinary;
+    }
+}
+.btn-save{
+    background-color: $color-secondary;
+    color: $color-primary;
+    &:hover{
+        background-color:$color-quinary;
+    }
+}

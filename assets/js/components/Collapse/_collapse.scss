@@ -8,10 +8,16 @@
     @include small-screen{
       display: flex;
       flex-direction: column;
+      width: 60%;
+      height: 305px;
+      margin-top: 5%;
+      justify-content:flex-start;
+      
     }
 }
 .collapse-div{
   margin-top: 2%;
+  
 }
 
 .collapse-all{
@@ -20,13 +26,14 @@
         @include small-screen{
         width: 335px;
         margin-left: 0.5%;
+        margin:0;
       }
 }
 
 .collapse-description{
     color: $color-secondary;
     @include small-screen{
-        font-size: 14px;
+        font-size: 12px;
       }
 }
 
@@ -46,11 +53,12 @@
         display: flex;
         background-color: $color-secondary;
         color: $color-primary;
-        width: 99%;
+        width: 100%;
         height:52px;
         padding-left: 1%;
         @include small-screen{
-            padding-left: 1;
+            padding-left: 1%;
+            font-size: 12px;
           }
 
     }
@@ -77,16 +85,27 @@
         overflow: visible;
         padding: 1rem;
         opacity: 1;
-
+        @include small-screen{
+          font-size: 12px;
+          padding: 1%;
+        }
+        
         li{
           // border: 1px solid red;
           font-size: 18px;
           padding-right: 1px;
         }
-
+        
         @include small-screen{
-            margin-bottom: 2%;
+          margin-bottom: 2%;
+        }
+        .li-equipment{
+         
+          @include small-screen{
+            font-size: 12px;
+
           }
+        }
     }
     .chevronValue{
         width: 24px;

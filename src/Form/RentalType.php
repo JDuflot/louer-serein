@@ -22,11 +22,11 @@ class RentalType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
+                'label' => 'Titre',
                 'attr' => [
                     'class' => 'form-control mt-3',
                     'placeholder' => "Titre de la location",
                 ],
-                'label' => 'Titre',
                 'label_attr' => [],
                 'constraints' => [
                     new NotBlank([

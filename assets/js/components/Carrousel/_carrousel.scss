@@ -8,7 +8,7 @@
     justify-content: center;
     @include small-screen{
       width: 90%;
-      height:250px;
+      height:180px;
 
     }
 
@@ -21,8 +21,8 @@
       object-fit:cover;
       background-size:cover;
       @include small-screen{
-        width:100%;
-        height: auto;
+        width:90%;
+        height: 30%;
       }
     }
    .slider{
@@ -34,7 +34,7 @@
     align-items: center;
     @include small-screen{
       width:90%;
-      height: 220px;
+      height: 100px;
       margin-top: 8%;
      
     }

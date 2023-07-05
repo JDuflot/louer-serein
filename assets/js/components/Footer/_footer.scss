@@ -6,22 +6,28 @@
     color: $color-primary;
 
     @include small-screen {
-        height: 100px;
+        height: 120px;
+        justify-content: center;
     }
     .logo{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-right: 3.5%;
-        
+        // margin-right: 3.5%;
+            @include small-screen {
+                margin-right: 10%;
+            }
+       
     }
     img{
         width: 30%;
 
         @include small-screen {
-            margin-left: 36%;
-            height: 35%;
+            // margin-left: 18%;
+            width: 38%;
+            height: 70%;
+
         }
     }
 
@@ -31,7 +37,7 @@
                 font-size: 18px;
                 font-weight: 100;
                 @include small-screen {
-        
+                    text-align:left;
                     font-size: 12px;
         
                 }
@@ -45,7 +51,21 @@
        a.link{
             text-decoration: none;
             color: $color-primary;
+            @include small-screen {
+        
+                font-size: 10px;
+    
+            }
         }
-    }
+        .link{
+            text-decoration: none;
+            color: $color-primary;
+            @include small-screen {
+        
+                margin-right: 2%;
+    
+            }
+        }
+       
 
-}
+}}

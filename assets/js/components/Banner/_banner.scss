@@ -9,6 +9,9 @@
     background-repeat: no-repeat;
     background-position-y: 14%;
     background-image: url(../../assets/img/mountains.jpg);
+    @include small-screen {
+        width: 85%;
+    }
 
 
 
@@ -27,7 +30,7 @@
             justify-content: baseline;
             align-items: center;
             margin-left: 1%;
-            font-size: 16px;
+            font-size: 22px !important;
         }
         @include medium-screen {
             font-size: 24px;

@@ -1,77 +1,119 @@
-#react-navbar{
-    margin-bottom: 3%;
-}
-.header-nav{
+.header-nav {
     display: flex;
     width: 76%;
     margin: auto;
     align-items: center;
     justify-content: space-between;
-    
 
-    @include small-screen{
+    @include small-screen {
         padding-top: 5px;
+        width: 100%;
     }
-    .navbar{
-  
+
+    .navbar {
+
         width: 80%;
         height: 120px;
+
+        @include small-screen {
+            margin-left: 1%;
+            width: 99%;
+            padding: 0;
+        }
     }
-    .logo a{
+
+    .logo a {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 300px;
         height: 120px;
-      
+
     }
-    .header-title{
+
+    .header-title {
         display: flex;
         flex-direction: row;
         color: $color-quinary;
         font-size: 38px;
         font-family: Dancing-Script;
-        
         margin-top: 13%;
+
         @include small-screen {
             display: none;
-    }
-    h1{
-        text-decoration: none;
-    }
+        }
+
+        h1 {
+            text-decoration: none;
+        }
     }
 
-    .logo,img{
-        width: 120px;
-
+    a.link-nav {
         @include small-screen {
-            width: 80px;
-            margin-top: 5%;
+            width: 100px;
+            height: 75px;
+            margin: 0;
+        }
     }
-}
 
-    .ul-nav{
+    .logo,
+    img {
+        width: 120px;
+        @include small-screen {
+            margin: auto;
+            margin-top: 0;
+            width: 90%;
+        }
+    }
+
+    .logo {
+        @include small-screen {
+            width: 95px;
+        }
+    }
+    nav {
+        @include small-screen {
+            // margin-left: 10%;
+            // border: 1px solid blue;
+            width: 100%;
+        }
+    }
+
+    .ul-nav {
         display: flex;
         width: 900px;
         justify-content: space-around;
         align-items: center;
-        
+        padding: 0;
+        margin-left: 15%;
+        @include small-screen {
+            width: 100%;
+            margin-top: 2%;
+            // border: 1px solid rgb(234, 0, 255);
 
-        a{
-           
+        }
+
+
+        a {
+
             color: $color-secondary;
             font-size: 22px;
-            
-        }
-            a:hover{
-                text-decoration: underline;
-            }
-
             @include small-screen {
-                padding-top: 25px;
-                width: 120px;
                 font-size: 12px;
+                color: $color-secondary;
+            }
         }
-     }
+
+        a:hover {
+            text-decoration: underline;
+            color: $color-quinary;
+        }
+
+        // @include small-screen {
+        //     padding-top: 25px;
+        //     width: 120px;
+        //     font-size: 12px;
+        // }
+    }
 
 }

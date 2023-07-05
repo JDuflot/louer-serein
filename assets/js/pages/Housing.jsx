@@ -22,7 +22,7 @@ function Housing() {
     </div>
     <div className="housing-all">
     <div className="housing-up">
-        <a><Link className="btn btn-chat" reloadDocument={true} to="/chat">Messagerie</Link></a>
+        {/* <a><Link className="btn btn-chat" reloadDocument={true} to="/chat">Messagerie</Link></a> */}
         <Sheet hosts={data.host} ratings={data.rating} descriptions={data.description} equipments = {data.equipments} titles={data.title} locations ={data.location} tags={data.tags}/>
         {/* faire ça pour chaque E du tableau datas puis les appeler dans la page Sheet un par un */}
     </div>

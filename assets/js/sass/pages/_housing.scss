@@ -3,6 +3,12 @@
     color: $color-primary;
     margin-left: 78%;
     margin-top: 1%;
+    @include small-screen{
+      position: relative;
+      bottom: 100%;
+      right:50%;
+
+    }
 
   }
   a.btn-chat{

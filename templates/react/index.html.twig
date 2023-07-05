@@ -13,6 +13,16 @@
 {% endblock %}
 
 {% block javascripts %}
+	<script>
+		{% if app.user %}
+const userData = {
+email: "{{ app.user.email }}"
+};
+console.log(userData);
+
+localStorage.setItem('user', JSON.stringify(userData));
+{% else %}
+localStorage.removeItem('user');{% endif %}
+	</script>
 	{{ encore_entry_script_tags('js') }}
 {% endblock %}
-

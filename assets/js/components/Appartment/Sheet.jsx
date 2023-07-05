@@ -10,14 +10,14 @@ function Sheet(props) {
 
     const rating = props.ratings; //ratings ayant deux objets création d'une const
   return (
-    <div>
+    <div >
         <div className='housing'>
 
-                <div>
+                <div className='details'>
 				{/* appel les props puis reprend la déclaration dans Housing pour récupérer les bonnes datas pour chaque E*/}
                 <h1  className='housing-title'>{props.titles}</h1>  
 						    <p className='housing-loc'>{props.locations}</p>
-                <div>
+                <div className='tags'>
 							{props.tags.map((element, index) => {
 								return (
 									<button className='housing-btn' key={index}>{element}</button>

@@ -6,7 +6,7 @@ import React from "react"
 export default function Collapse({title, content}) {
     console.log(content);
     
-    const [contentVisible, setContentVisible] = useState(false); // permet de dire que la valeur par défaut est false donc non visible
+    const [contentVisible, setContentVisible] = useState(true); // permet de dire que la valeur par défaut est false donc non visible
     
     const dispContent = () => {
         setContentVisible(!contentVisible)  } //inverse la valeur lors de l'event onClick
@@ -30,7 +30,7 @@ export default function Collapse({title, content}) {
                     <ul className='collapse-ul'>
                        {Array.isArray(content)
                        && content.map((item, index) => (
-                           <li key={index}>{item}</li>
+                           <li className='li-equipment' key={index}>{item}</li>
                            )) || content
                         }
                     </ul> 
